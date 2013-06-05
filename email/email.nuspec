@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+	<metadata>
+		<id>email</id>
+		<version>1.1.0</version>
+		<authors>Daniel Crenna</authors>
+		<owners>Daniel Crenna</owners>
+		<description>Easily render and send emails in your applications. Supports templating, parallel delivery, observable folders, retry policy, backlog, and more.</description>
+		<summary>Easily render and send emails in your applications.</summary>
+		<language>en-US</language>
+		<projectUrl>http://github.com/danielcrenna/email</projectUrl>
+		<licenseUrl>https://github.com/danielcrenna/email/blob/master/LICENSE</licenseUrl>
+		<tags>email delivery</tags>   
+	</metadata>
+</package>
