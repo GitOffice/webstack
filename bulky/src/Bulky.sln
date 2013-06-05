@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2010
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bulky", "bulky\bulky.csproj", "{B9424B16-EFDD-497A-B698-3ABC1DAC51E6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bulky.Tests", "Bulky.Tests\bulky.Tests.csproj", "{F556E6C7-9500-4BF0-A746-D8ABF9A7B7D0}"
@@ -13,8 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\push-nuget.bat = ..\push-nuget.bat
 		..\README.md = ..\README.md
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bulky.Copper", "bulky.Copper\bulky.Copper.csproj", "{B8A26190-F414-4BF6-943B-AA786411637C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,10 +28,6 @@ Global
 		{F556E6C7-9500-4BF0-A746-D8ABF9A7B7D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F556E6C7-9500-4BF0-A746-D8ABF9A7B7D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F556E6C7-9500-4BF0-A746-D8ABF9A7B7D0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B8A26190-F414-4BF6-943B-AA786411637C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B8A26190-F414-4BF6-943B-AA786411637C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B8A26190-F414-4BF6-943B-AA786411637C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B8A26190-F414-4BF6-943B-AA786411637C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

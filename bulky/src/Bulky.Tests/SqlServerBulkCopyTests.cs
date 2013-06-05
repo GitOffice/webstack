@@ -15,13 +15,5 @@ namespace bulky.Tests
             BulkCopyFixture.BulkCopyUsers(trials);
             BulkCopyFixture.BulkCopyUsers(trials, trace: true);
         }
-
-        [TestCase(100)]
-        [TestCase(1000)]
-        public void Bulk_copy_n_records_with_consumer(int trials)
-        {
-            BulkCopyFixture.BulkCopyUsersWithConsumer(trials);
-            BulkCopyFixture.BulkCopyUsersWithConsumer(trials, trace: true);
-        }
     }
 }

@@ -1,1 +1,1 @@
-".nuget\NuGet.exe" push bulky.1.0.5.nupkg
+".nuget\NuGet.exe" push bulky.1.0.6.nupkg

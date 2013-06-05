@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading;
 using Dapper;
 using NUnit.Framework;
-using copper;
 using tophat;
 using tuxedo;
 
@@ -21,33 +20,6 @@ namespace bulky.Tests.Fixtures
             var sw = Stopwatch.StartNew();
             UnitOfWork.Current.BulkCopy(users);
             var elapsed = sw.Elapsed;
-            var count = AssertInsertCount(users.Count, elapsed, trace);
-            if (trace)
-            {
-                Console.WriteLine("Inserting {0} records took {1}", count, elapsed);
-            }
-        }
-
-        public static void BulkCopyUsersWithConsumer(int trials, bool trace = false)
-        {
-            var users = ResetUsers(trials);
-            var consumer = new BulkCopyConsumer<User>(100);
-            
-            var block = new ManualResetEvent(false);
-            var producer = new ObservingProducer<User>().Produces(users, onCompleted: () =>
-            {
-                while (consumer.Consumed < trials)
-                {
-                    Thread.Sleep(100);
-                }
-                block.Set();
-            });
-            producer.Consumes(consumer);
-            var sw = Stopwatch.StartNew();
-            producer.Start();
-            block.WaitOne();
-            var elapsed = sw.Elapsed;
-
             var count = AssertInsertCount(users.Count, elapsed, trace);
             if (trace)
             {

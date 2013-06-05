@@ -11,9 +11,7 @@ native bulk copy mechanism of your database simply, using plain C# objects and a
 ### Why would I use this?
 - You want simple, high speed bulk inserts of large collections of objects
 - You need support for multiple databases (SQL Server, MySQL, and SQLite are supported today)
-- You use [copper](http://github.com/danielcrenna/copper), and you want to hook up a `BulkCopyConsumer` for high performance, periodic batching inserts 
 - It works great with [tophat](http://github.com/danielcrenna/tophat)
-
 
 ### Usage
 
@@ -71,32 +69,4 @@ CREATE TABLE [dbo].[User]
     [Email] [varchar](255) NOT NULL, 
     CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED ([Id] ASC)
 )
-```
-
-### How do I use this with [copper](http://github.com/danielcrenna/copper)?
-
-Bulky includes a `BulkCopyConsumer` (in source, not in the distro) that will batch events handled by it and 
-bulk insert them to the underlying database. By default, it uses [tophat](http://github.com/danielcrenna/tophat) for connection scoping
-(but you can provide your own `ConnectionBuilder` function), and [TableDescriptor](http://github.com/danielcrenna/TableDescriptor) for object mapping
-(but you can provide your own `Descriptor` for custom mapping).
-
-```csharp
-using tophat;
-using TableDescriptor;
-using bulky;
-
-// Consumer will bulk copy every 100 records, or every five seconds, whichever comes first
-var consumer = new BulkCopyConsumer<User>(100, TimeSpan.FromSeconds(5);
-
-// By default, the connection used by the consumer is tophat's current unit of work
-consumer.ConnectionBuilder = () => UnitOfWork.Current;
-
-// By default, the mapper used by the consumer is TableDescriptor's SimpleDescriptor
-consumer.Descriptor = SimpleDescriptor.Create<User>();
-
-// These users could come from anywhere...
-var users = MyBigBagOfUsers()
-
-// Some producer is off obtaining users from somewhere, and bulk copying them in batches
-var producer = new CollectionProducer<User>(users).Consumes(consumer).Start();
 ```
