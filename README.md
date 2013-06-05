@@ -20,7 +20,6 @@ Each of these libraries is available separately on http://nuget.org
 * tuxedo - Like Dapper, but for common queries. Gives you high speed insert, update, delete with no SQL
 
 
-Voltron Driven Development
---------------------------
+#### Voltron Driven Development
 Use one, use them all, use none. I don't believe in frameworks. Use purpose-built libraries that 
 accomplish one and only one thing.
