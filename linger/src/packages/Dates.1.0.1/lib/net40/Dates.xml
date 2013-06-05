@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dates</name>
+    </assembly>
+    <members>
+        <member name="T:Dates.DateInterval">
+            <summary>
+            Used when calculating the difference between two <see cref="T:System.DateTime"/> instances
+            with the <see cref="T:Dates.DateSpan"/> class.
+            </summary>
+        </member>
+        <member name="F:Dates.DateInterval.Years">
+            <summary>
+            Years
+            </summary>
+        </member>
+        <member name="F:Dates.DateInterval.Months">
+            <summary>
+             Months
+            </summary>
+        </member>
+        <member name="F:Dates.DateInterval.Weeks">
+            <summary>
+            Weeks
+            </summary>
+        </member>
+        <member name="F:Dates.DateInterval.Days">
+            <summary>
+            Days
+            </summary>
+        </member>
+        <member name="F:Dates.DateInterval.Hours">
+            <summary>
+            Hours
+            </summary>
+        </member>
+        <member name="F:Dates.DateInterval.Minutes">
+            <summary>
+            Minutes
+            </summary>
+        </member>
+        <member name="F:Dates.DateInterval.Seconds">
+            <summary>
+            Seconds
+            </summary>
+        </member>
+        <member name="T:Dates.DateSpan">
+            <summary>
+            A struct similar to <see cref="T:System.TimeSpan"/> that stores the elapsed time between two dates,
+            but does so in a way that respects the number of actual days in the elapsed years and months.
+            </summary>
+        </member>
+        <member name="M:Dates.DateSpan.#ctor(System.DateTime,System.DateTime,System.Boolean)">
+            <param name="start">The start date</param>
+            <param name="end">The end date</param>
+            <param name="excludeEndDate">If true, the span is exclusive of the end date</param>
+        </member>
+        <member name="M:Dates.DateSpan.GetDifference(Dates.DateInterval,System.DateTime,System.DateTime,System.Boolean)">
+            <summary>
+            Gets the scalar difference between two dates given a <see cref="T:Dates.DateInterval"/> value.
+            </summary>
+            <param name="interval">The interval to calculate</param>
+            <param name="start">The start date</param>
+            <param name="end">The end date</param>
+            <param name="excludeEndDate">If true, the difference is exclusive of the end date</param>
+            <returns></returns>
+        </member>
+        <member name="P:Dates.DateSpan.Years">
+            <summary>
+            The number of discrete years occurring in this span
+            </summary>
+        </member>
+        <member name="P:Dates.DateSpan.Months">
+            <summary>
+            The number of discrete months occurring in this span
+            </summary>
+        </member>
+        <member name="P:Dates.DateSpan.Weeks">
+            <summary>
+            The number of discrete weeks occurring in this span
+            </summary>
+        </member>
+        <member name="P:Dates.DateSpan.Days">
+            <summary>
+            The number of discrete days occurring in this span
+            </summary>
+        </member>
+        <member name="P:Dates.DateSpan.Hours">
+            <summary>
+            The number of discrete hours occurring in this span
+            </summary>
+        </member>
+        <member name="P:Dates.DateSpan.Minutes">
+            <summary>
+            The number of discrete minutes occurring in this span
+            </summary>
+        </member>
+        <member name="P:Dates.DateSpan.Seconds">
+            <summary>
+            The number of discrete seconds occurring in this span
+            </summary>
+        </member>
+        <member name="T:Dates.DatePeriod">
+            <summary>
+            A period of time used in date calculations.
+            </summary>
+        </member>
+        <member name="M:Dates.DatePeriod.#ctor(Dates.DatePeriodFrequency,System.Int32)">
+            <param name="frequency">The period frequency, paired with the quantifier</param>
+            <param name="quantifier">The period quantifier, paired with frequency</param>
+        </member>
+        <member name="M:Dates.DatePeriod.GetOccurrences(System.DateTime,System.DateTime,System.Boolean)">
+            <summary>
+            Gets the date occurrences in this period, between a start and end date.
+            If an occurrence falls on a weekend, it is deferred to the start
+            of the next week.
+            </summary>
+            <param name="start">The starting date.</param>
+            <param name="end">The ending date.</param>
+            <param name="skipWeekends">If true, occurrences scheduled for a weekend are deferred to the following weekday</param>
+            <returns>A list of dates representing period occurrences.</returns>
+        </member>
+        <member name="P:Dates.DatePeriod.Frequency">
+            <summary>
+            The period frequency, paired with <see cref="P:Dates.DatePeriod.Quantifier"/>
+            </summary>
+        </member>
+        <member name="P:Dates.DatePeriod.Quantifier">
+            <summary>
+            The period quantifier, paired with <see cref="P:Dates.DatePeriod.Frequency"/>
+            </summary>
+        </member>
+        <member name="P:Dates.DatePeriod.Hourly">
+            <summary>
+            A period of time occurring hourly
+            </summary>
+        </member>
+        <member name="P:Dates.DatePeriod.Daily">
+            <summary>
+            A period of time occurring every day
+            </summary>
+        </member>
+        <member name="P:Dates.DatePeriod.Monthly">
+            <summary>
+            A period of time occurring every month
+            </summary>
+        </member>
+        <member name="P:Dates.DatePeriod.BiMonthly">
+            <summary>
+            A period of time occurring every other month
+            </summary>
+        </member>
+        <member name="P:Dates.DatePeriod.Weekly">
+            <summary>
+            A period of time occurring every week
+            </summary>
+        </member>
+        <member name="P:Dates.DatePeriod.BiWeekly">
+            <summary>
+            A period of time occurring every other week
+            </summary>
+        </member>
+        <member name="P:Dates.DatePeriod.Annually">
+            <summary>
+            A period of time occurring every year
+            </summary>
+        </member>
+        <member name="P:Dates.DatePeriod.BiAnnually">
+            <summary>
+            A period of time occurring every other year
+            </summary>
+        </member>
+        <member name="T:Dates.DatePeriodFrequency">
+            <summary>
+            The frequency interval between occurrences in a <see cref="T:Dates.DatePeriod"/>.
+            </summary>
+        </member>
+        <member name="F:Dates.DatePeriodFrequency.Seconds">
+            <summary>
+            Seconds
+            </summary>
+        </member>
+        <member name="F:Dates.DatePeriodFrequency.Minutes">
+            <summary>
+            Minutes
+            </summary>
+        </member>
+        <member name="F:Dates.DatePeriodFrequency.Hours">
+            <summary>
+            Hours
+            </summary>
+        </member>
+        <member name="F:Dates.DatePeriodFrequency.Days">
+            <summary>
+            Days
+            </summary>
+        </member>
+        <member name="F:Dates.DatePeriodFrequency.Weeks">
+            <summary>
+            Weeks
+            </summary>
+        </member>
+        <member name="F:Dates.DatePeriodFrequency.Months">
+            <summary>
+            Months
+            </summary>
+        </member>
+        <member name="F:Dates.DatePeriodFrequency.Years">
+            <summary>
+            Years
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>tophat</id>
+    <version>1.0.7</version>
+    <authors>Daniel Crenna</authors>
+    <owners>Daniel Crenna</owners>
+    <licenseUrl>https://github.com/danielcrenna/tophat/blob/master/LICENSE.md</licenseUrl>
+    <projectUrl>http://github.com/danielcrenna/tophat</projectUrl>
+    <iconUrl>http://apitize.com.s3.amazonaws.com/logo_generic.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Provides unit-of-work style connection scoping to any ADO.NET supporting database.</description>
+    <summary>Provides unit-of-work style connection scoping to any ADO.NET supporting database.</summary>
+    <language>en-US</language>
+    <tags>dapper idbconnection unitofwork sqlserver</tags>
+    <dependencies>
+      <dependency id="container" version="0.0.4" />
+    </dependencies>
+  </metadata>
+</package>
