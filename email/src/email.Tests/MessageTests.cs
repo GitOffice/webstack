@@ -1,5 +1,6 @@
 using System.IO;
 using NUnit.Framework;
+using email.Providers;
 
 namespace email.Tests
 {
@@ -10,7 +11,7 @@ namespace email.Tests
             var pickupDirectory = Path.Combine(Path.GetTempPath(), "pickup");
             CreateOrCleanDirectory(pickupDirectory);
 
-            var service = new DirectoryEmailService(pickupDirectory);
+            var service = new DirectoryEmailProvider(pickupDirectory);
             service.Send(message);
 
             AssertFileCount(pickupDirectory, 1);

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using NUnit.Framework;
 using email.Delivery;
+using email.Providers;
 
 namespace email.Tests.Delivery
 {
@@ -21,7 +22,7 @@ namespace email.Tests.Delivery
 
             var config = new DeliveryConfiguration {BacklogFolder = "backlog", MaxDegreeOfParallelism = 10};
 
-            var service = new DeliveryService(new DirectoryEmailService(pickupDirectory), config);
+            var service = new DeliveryService(new DirectoryEmailProvider(pickupDirectory), config);
             var messages = MessageFactory.EmailWithHtmlAndText(count);
 
             service.Start();

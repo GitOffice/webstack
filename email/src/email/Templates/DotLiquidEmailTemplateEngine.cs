@@ -13,7 +13,7 @@ namespace email.Templates
         {
             var hash = HashExtensions.FromDynamic(model);
             var textBody = PrepareBodyFromTemplate(textTemplate, hash);
-            dynamic wrapped = new SafeHash((Hash)hash);
+            var wrapped = WrapEmail(hash);
             var email = new EmailMessage
             {
                 From = wrapped.From,
@@ -31,7 +31,7 @@ namespace email.Templates
             var htmlBody = PrepareBodyFromTemplate(htmlTemplate, hash);
             var textBody = PrepareBodyFromTemplate(textTemplate, hash);
 
-            dynamic wrapped = new SafeHash((Hash)hash);
+            var wrapped = WrapEmail(hash);
             var email = new EmailMessage
             {
                 From = wrapped.From,
@@ -49,7 +49,7 @@ namespace email.Templates
             var hash = HashExtensions.FromDynamic(model);
             var htmlBody = PrepareBodyFromTemplate(htmlTemplate, hash);
 
-            dynamic wrapped = new SafeHash((Hash)hash);
+            var wrapped = WrapEmail(hash);
             var email = new EmailMessage
             {
                 From = wrapped.From,
@@ -59,6 +59,17 @@ namespace email.Templates
             };
 
             return email;
+        }
+
+
+        private static dynamic WrapEmail(dynamic hash)
+        {
+            dynamic wrapped = new SafeHash((Hash)hash);
+            if (!(wrapped.To is List<string>))
+            {
+                wrapped.To = new List<string>(new[] { wrapped.To as string });
+            }
+            return wrapped;
         }
 
         private static string PrepareBodyFromTemplate(string template, dynamic hash)
