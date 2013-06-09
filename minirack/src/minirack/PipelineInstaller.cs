@@ -33,9 +33,10 @@ namespace minirack
             var assemblies = AppDomain.CurrentDomain.GetAssemblies();
             var types = assemblies.SelectMany(assembly => assembly.GetTypes());
             var modules = types.Where(t => t.HasAttribute<PipelineAttribute>() && t.Implements<IHttpModule>());
-            foreach (var module in modules)
+            var moduleOrder = modules.Select(m => new {m, i = m.GetAttribute<PipelineAttribute>().Order}).OrderBy(o => o.i);
+            foreach (var order in moduleOrder)
             {
-                DynamicModuleUtility.RegisterModule(module);
+                DynamicModuleUtility.RegisterModule(order.m);
             }
         }
     }

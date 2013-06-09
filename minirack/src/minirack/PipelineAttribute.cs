@@ -9,6 +9,6 @@ namespace minirack
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
     public class PipelineAttribute : Attribute
     {
-        
+        public int Order { get; set; }
     }
 }

@@ -1,1 +1,1 @@
-".nuget\NuGet.exe" push MiniRack.0.0.2.nupkg
+"..\.nuget\NuGet.exe" push MiniRack.1.0.0.nupkg

@@ -46,5 +46,10 @@ namespace minirack.Extensions
         {
             return type.GetCustomAttributes(typeof(T), true).Length > 0;
         }
+
+        public static T GetAttribute<T>(this Type type) where T : Attribute
+        {
+            return type.GetCustomAttributes(typeof (T), true)[0] as T;
+        }
     }
 }

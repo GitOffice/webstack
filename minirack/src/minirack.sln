@@ -5,7 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "minirack", "minirack\minira
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6A5F891A-1016-454D-99A7-44B08A9AECDD}"
 	ProjectSection(SolutionItems) = preProject
-		..\LICENSE.md = ..\LICENSE.md
 		..\minirack.nuspec = ..\minirack.nuspec
 		..\pack-nuget.bat = ..\pack-nuget.bat
 		..\push-nuget.bat = ..\push-nuget.bat
