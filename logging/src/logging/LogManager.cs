@@ -20,5 +20,10 @@ namespace logging
         {
             return Container.Resolve<ILogFactory>().GetLogger(name);
         }
+
+        public static ILog GetLogger()
+        {
+            return Container.Resolve<ILogFactory>().GetLogger();
+        }
     }
 }
