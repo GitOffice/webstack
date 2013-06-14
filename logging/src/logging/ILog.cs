@@ -4,6 +4,13 @@ namespace logging
 {
     public interface ILog
     {
+        bool TraceEnabled { get; }
+        bool DebugEnabled { get; }
+        bool InfoEnabled { get; }
+        bool WarnEnabled { get; }
+        bool ErrorEnabled { get; }
+        bool FatalEnabled { get; }
+
         void Trace(Func<string> message);
         void Trace(Func<string> message, Exception exception);
         void Debug(Func<string> message);

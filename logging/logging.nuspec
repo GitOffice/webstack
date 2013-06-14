@@ -2,7 +2,7 @@
 <package>
     <metadata>
         <id>logging</id>
-        <version>0.9.0</version>
+        <version>0.9.1</version>
         <authors>Daniel Crenna</authors>
         <owners>Daniel Crenna</owners>
         <summary>A simple logging abstraction.</summary>

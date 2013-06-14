@@ -1,16 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "logging", "logging.csproj", "{0D1E17EF-4925-4A7A-ACEA-7EB2E129C992}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "logging", "logging\logging.csproj", "{0D1E17EF-4925-4A7A-ACEA-7EB2E129C992}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "logging.nlog", "..\logging.nlog\logging.nlog.csproj", "{32B0DDA9-D96F-4A42-9614-99430E98CC0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "logging.nlog", "logging.nlog\logging.nlog.csproj", "{32B0DDA9-D96F-4A42-9614-99430E98CC0A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2227F94E-988F-4F45-807E-7E3B930EC128}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\logging.nuspec = ..\..\logging.nuspec
-		..\..\pack-nuget.bat = ..\..\pack-nuget.bat
-		..\..\push-nuget.bat = ..\..\push-nuget.bat
-		..\..\README.md = ..\..\README.md
+		..\logging.nuspec = ..\logging.nuspec
+		..\pack-nuget.bat = ..\pack-nuget.bat
+		..\push-nuget.bat = ..\push-nuget.bat
+		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
 Global

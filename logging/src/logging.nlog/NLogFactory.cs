@@ -6,5 +6,10 @@
         {
             return new NLogLogger(NLog.LogManager.GetLogger(name));
         }
+
+        public ILog GetLogger()
+        {
+            return new NLogLogger(NLog.LogManager.GetCurrentClassLogger());
+        }
     }
 }

@@ -11,7 +11,14 @@ namespace logging.nlog
         {
             _inner = inner;
         }
-        
+
+        public bool TraceEnabled { get { return _inner.IsTraceEnabled; } }
+        public bool DebugEnabled { get { return _inner.IsDebugEnabled; } }
+        public bool InfoEnabled { get { return _inner.IsInfoEnabled; } }
+        public bool WarnEnabled { get { return _inner.IsWarnEnabled; } }
+        public bool ErrorEnabled { get { return _inner.IsErrorEnabled; } }
+        public bool FatalEnabled { get { return _inner.IsFatalEnabled; } }
+
         public void Trace(Func<string> message)
         {
             if (_inner.IsTraceEnabled)
