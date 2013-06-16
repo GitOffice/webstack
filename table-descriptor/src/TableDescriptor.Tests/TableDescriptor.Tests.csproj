@@ -45,6 +45,7 @@
     <Compile Include="DescriptorTests.cs" />
     <Compile Include="Models\HasTransient.cs" />
     <Compile Include="Models\SimpleUser.cs" />
+    <Compile Include="Models\SimpleUserInherited.cs" />
     <Compile Include="Models\ThroughTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -6,6 +6,6 @@ namespace tuxedo.Dialects
         public char EndIdentifier { get { return ']'; } }
         public char Separator { get { return '.'; } }
         public int ParametersPerQuery { get { return 500; } }
-        public string Identity { get { return "SELECT SCOPE_IDENTITY() AS [Id]"; }}
+        public string Identity { get { return "SELECT CAST(SCOPE_IDENTITY() AS INT) AS [Id]"; } }
     }
 }

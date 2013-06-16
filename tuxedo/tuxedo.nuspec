@@ -2,7 +2,7 @@
 <package>
     <metadata>
         <id>tuxedo</id>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
         <authors>Daniel Crenna</authors>
         <owners>Daniel Crenna</owners>
         <summary>A database-agnostic SQL generator for common tasks.</summary>
@@ -13,8 +13,9 @@
         <iconUrl>http://apitize.com.s3.amazonaws.com/logo_generic.png</iconUrl>
         <tags>dapper tophat sql query</tags>
         <dependencies>
-          <dependency id="Dapper" version="1.12.1" />
+          <dependency id="Dapper" version="1.13" />
           <dependency id="TableDescriptor" version="1.0.0" />
+          <dependency id="logging" version="0.9.1" />
         </dependencies>
     </metadata>
 </package>

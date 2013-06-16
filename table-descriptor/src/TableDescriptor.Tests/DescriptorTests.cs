@@ -20,6 +20,21 @@ namespace TableDescriptor.Tests
             Assert.AreEqual(1, descriptor.All.Count, "All");
             Assert.AreEqual(0, descriptor.Insertable.Count, "Insertable");
         }
+
+        [Test]
+        public void Simple_inherited_user_has_an_identity()
+        {
+            var descriptor = SimpleDescriptor.Create<SimpleUserInherited>();
+
+            Assert.IsNotNull(descriptor);
+            AssertIdentityIsPresent(descriptor);
+
+            Assert.AreEqual("Id", descriptor.Identity.Property.Name);
+            Assert.AreEqual(typeof(int), descriptor.Identity.Property.Type);
+
+            Assert.AreEqual(1, descriptor.All.Count, "All");
+            Assert.AreEqual(0, descriptor.Insertable.Count, "Insertable");
+        }
         
         [Test]
         public void Through_tables_are_given_two_assigned_keys_rather_than_an_identity()

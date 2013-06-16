@@ -30,8 +30,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="container">
+      <HintPath>..\packages\logging.0.9.1\lib\net40\container.dll</HintPath>
+    </Reference>
     <Reference Include="Dapper">
-      <HintPath>..\packages\Dapper.1.12.1\lib\net40\Dapper.dll</HintPath>
+      <HintPath>..\packages\Dapper.1.13\lib\net40\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="logging">
+      <HintPath>..\packages\logging.0.9.1\lib\net40\logging.dll</HintPath>
+    </Reference>
+    <Reference Include="logging.nlog">
+      <HintPath>..\packages\logging.0.9.1\lib\net40\logging.nlog.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\logging.0.9.1\lib\net40\NLog.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

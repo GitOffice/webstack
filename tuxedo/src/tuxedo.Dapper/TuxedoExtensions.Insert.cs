@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Linq;
 using Dapper;
 
 namespace tuxedo.Dapper
@@ -14,7 +15,8 @@ namespace tuxedo.Dapper
             {
                 sql = string.Concat(sql, "; ", Tuxedo.Identity());
             }
-            var result = connection.Execute(sql, Prepare(insert.Parameters), transaction, commandTimeout);
+            // var result = connection.Execute(sql, Prepare(insert.Parameters), transaction, commandTimeout);
+            var result = connection.Query<int>(sql, Prepare(insert.Parameters), transaction, true, commandTimeout).Single();
             MapBackId(descriptor, entity, result);
             return entity;
         }

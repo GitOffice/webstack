@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Dapper;
 using TableDescriptor;
+using logging;
 
 namespace tuxedo.Dapper
 {
@@ -9,6 +10,8 @@ namespace tuxedo.Dapper
     
     public static partial class TuxedoExtensions
     {
+        private static ILog _logger = LogManager.GetLogger("tuxedo");
+
         private static void MapBackId<T>(Descriptor descriptor, T entity, object id) where T : class
         {
             if (descriptor.Identity == null) return;

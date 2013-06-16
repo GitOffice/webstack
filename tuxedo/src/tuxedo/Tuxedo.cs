@@ -81,7 +81,8 @@ namespace tuxedo
         {
             if (example is IDynamicMetaObjectProvider)
             {
-                if (example is ExpandoObject)
+                var hash = example as ExpandoObject;
+                if (hash != null)
                 {
                     return (IDictionary<string, object>)example;
                 }
