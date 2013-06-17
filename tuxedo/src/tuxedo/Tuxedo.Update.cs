@@ -36,6 +36,10 @@ namespace tuxedo
                     setClause.Add(insertable.ColumnName, value);
                 }
             }
+            foreach (var id in descriptor.Keys)
+            {
+                setClause.Remove(id.ColumnName);
+            }
             return setClause;
         }
 
