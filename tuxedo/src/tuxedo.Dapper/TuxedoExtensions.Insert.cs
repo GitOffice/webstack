@@ -14,10 +14,13 @@ namespace tuxedo.Dapper
             if(descriptor.Identity != null)
             {
                 sql = string.Concat(sql, "; ", Tuxedo.Identity());
+                var result = connection.Query<int>(sql, Prepare(insert.Parameters), transaction, true, commandTimeout).Single();
+                MapBackId(descriptor, entity, result);
             }
-            // var result = connection.Execute(sql, Prepare(insert.Parameters), transaction, commandTimeout);
-            var result = connection.Query<int>(sql, Prepare(insert.Parameters), transaction, true, commandTimeout).Single();
-            MapBackId(descriptor, entity, result);
+            else
+            {
+                connection.Execute(sql, Prepare(insert.Parameters), transaction, commandTimeout); 
+            }
             return entity;
         }
     }
