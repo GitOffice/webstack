@@ -12,12 +12,9 @@ namespace tuxedo
         public static Query Update<T>(T entity)
         {
             var descriptor = GetDescriptor<T>();
-            var setClause = DynamicToHash(entity);
-            foreach(var id in descriptor.Keys)
-            {
-                setClause.Remove(id.ColumnName);
-            }
-            
+            var hash = DynamicToHash(entity);
+            var setClause = BuildSafeSetClause(descriptor, hash);
+
             string sql;
             var parameters = UpdateSetClause(setClause, descriptor, out sql);
             
@@ -28,10 +25,24 @@ namespace tuxedo
             return new Query(sql, parameters.AddRange(whereClause.Parameters));
         }
 
+        private static Dictionary<string, object> BuildSafeSetClause(Descriptor descriptor, IDictionary<string, object> hash)
+        {
+            var setClause = new Dictionary<string, object>();
+            foreach (var insertable in descriptor.Insertable)
+            {
+                object value;
+                if (hash.TryGetValue(insertable.ColumnName, out value))
+                {
+                    setClause.Add(insertable.ColumnName, value);
+                }
+            }
+            return setClause;
+        }
+
         public static Query Update<T>(dynamic set, dynamic @where = null)
         {
             var descriptor = GetDescriptor<T>();
-            var setClause = (IDictionary<string, object>)DynamicToHash(set);
+            var setClause = (IDictionary<string, object>)BuildSafeSetClause(descriptor, DynamicToHash(set));
 
             string sql;
             var parameters = UpdateSetClause(setClause, descriptor, out sql);

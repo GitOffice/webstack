@@ -4,7 +4,7 @@ namespace tuxedo.Extensions
 {
     internal static class CollectionExtensions
     {
-        public static IDictionary<T, K> AddRange<T, K>(this IDictionary<T, K> left, IDictionary<T, K> right)
+        public static IDictionary<TKey, TValue> AddRange<TKey, TValue>(this IDictionary<TKey, TValue> left, IDictionary<TKey, TValue> right)
         {
             foreach(var item in right)
             {
