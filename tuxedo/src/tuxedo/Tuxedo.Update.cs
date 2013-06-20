@@ -17,8 +17,19 @@ namespace tuxedo
 
             string sql;
             var parameters = UpdateSetClause(setClause, descriptor, out sql);
-            
-            var keys = descriptor.Keys.ToDictionary(id => id.ColumnName, id => id.Property.Get(entity));
+
+            Dictionary<string, object> keys;
+            if (descriptor.Identity != null)
+            {
+                keys = new Dictionary<string, object>
+                {
+                    {descriptor.Identity.ColumnName, descriptor.Identity.Property.Get(entity)}
+                };
+            }
+            else
+            {
+                keys = descriptor.Keys.ToDictionary(id => id.ColumnName, id => id.Property.Get(entity));
+            }
             var whereClause = WhereClauseByExample(descriptor, keys);
             
             sql = string.Concat(sql, " WHERE ", whereClause.Sql);
@@ -35,10 +46,6 @@ namespace tuxedo
                 {
                     setClause.Add(insertable.ColumnName, value);
                 }
-            }
-            foreach (var id in descriptor.Keys)
-            {
-                setClause.Remove(id.ColumnName);
             }
             return setClause;
         }

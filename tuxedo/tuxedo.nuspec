@@ -2,7 +2,7 @@
 <package>
     <metadata>
         <id>tuxedo</id>
-        <version>1.0.8</version>
+        <version>1.0.9</version>
         <authors>Daniel Crenna</authors>
         <owners>Daniel Crenna</owners>
         <summary>A database-agnostic SQL generator for common tasks.</summary>

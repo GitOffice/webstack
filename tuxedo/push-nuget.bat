@@ -1,1 +1,1 @@
-"..\.nuget\NuGet.exe" push tuxedo.1.0.8.nupkg
+"..\.nuget\NuGet.exe" push tuxedo.1.0.9.nupkg
